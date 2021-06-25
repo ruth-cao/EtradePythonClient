@@ -7,7 +7,7 @@ import re
 
 # loading configuration file
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read('config2.ini')
 
 # logger settings
 logger = logging.getLogger('my_logger')
