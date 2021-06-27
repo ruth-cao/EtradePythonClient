@@ -13,7 +13,7 @@ from market.market import Market
 
 # loading configuration file
 config = configparser.ConfigParser()
-config.read('config2.ini')
+config.read('config.ini')
 
 # logger settings
 logger = logging.getLogger('my_logger')
