@@ -127,6 +127,7 @@ class Accounts:
                 # Display balance information
                 for acctPortfolio in data["PortfolioResponse"]["AccountPortfolio"]:
                     if acctPortfolio is not None and "Position" in acctPortfolio:
+                        totalDailyGain = 0
                         for position in acctPortfolio["Position"]:
                             print_str = ""
                             if position is not None and "symbolDescription" in position:
@@ -145,7 +146,12 @@ class Accounts:
                             if position is not None and "marketValue" in position:
                                 print_str = print_str + " | " + "Value: " \
                                             + str('${:,.2f}'.format(position["marketValue"]))
+                            if position is not None and "daysGain" in position:
+                                print_str = print_str + " | " + "The Gain over the day: " \
+                                            + str('${:,.2f}'.format(position["daysGain"]))
+                                totalDailyGain += position["daysGain"]
                             print(print_str)
+                        print("today's gain: ${0:.2f}".format(totalDailyGain))
                     else:
                         print("None")
             else:
